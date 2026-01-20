@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./api-gateway/.env
+    depends_on:
+      - auth-service
+      - channel-service
+      - chat-service
+      - wallet-service
+    restart: always
+
+  auth-service:
+    build: ./auth-service
+    container_name: auth-service
+    ports:
+      - "4001:4001"
+    env_file:
+      - ./auth-service/.env
+    restart: always
+
+  channel-service:
+    build: ./channel-service
+    container_name: channel-service
+    ports:
+      - "4002:4002"
+    env_file:
+      - ./channel-service/.env
+    restart: always
+
+  chat-service:
+    build: ./chat-service
+    container_name: chat-service
+    ports:
+      - "4003:4003"
+    env_file:
+      - ./chat-service/.env
+    restart: always
+
+  wallet-service:
+    build: ./wallet-service
+    container_name: wallet-service
+    ports:
+      - "4004:4004"
+    env_file:
+      - ./wallet-service/.env
+    restart: always
