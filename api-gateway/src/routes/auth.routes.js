@@ -6,7 +6,7 @@ const router = express.Router();
 router.use(
   '/',
   createProxyMiddleware({
-    target:process.env.AUTH_SERVICE_URL || 'http://auth-service:4001',
+    target:process.env.AUTH_SERVICE_URL,
     changeOrigin: true,
    
   })

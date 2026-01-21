@@ -6,7 +6,7 @@ router.use(
   '/',
   // verifyJWT, // 🔥 MUST ENABLE
   createProxyMiddleware({
-    target: process.env.CHANNEL_SERVICE_URL || 'http://localhost:4002',
+    target: process.env.CHANNEL_SERVICE_URL,
     changeOrigin: true
   })
 );

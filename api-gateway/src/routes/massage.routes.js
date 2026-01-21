@@ -6,7 +6,7 @@ router.use(
   '/',
   verifyJWT, // 🔥 MUST
   createProxyMiddleware({
-    target: process.env.CHAT_SERVICE_URL || 'http://localhost:4003', // 🔥 FIX PORT
+    target: process.env.CHAT_SERVICE_URL,
     changeOrigin: true
   })
 );
