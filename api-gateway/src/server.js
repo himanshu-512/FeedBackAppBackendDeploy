@@ -54,7 +54,7 @@ const io = new Server(server, {
  * 🔁 Gateway → Chat Service socket
  * Docker DNS name = chat-service
  */
-const chatSocket = Client("http://chat-service:4003", {
+const chatSocket = Client(`${process.env.CHAT_SERVICE_URL}`, {
   transports: ["websocket"],
 });
 
